@@ -1,10 +1,17 @@
 const db = require("./data/db");
+const cors = require('cors');
 const express = require("express");
 
 // invoke express server
 const port = 5001;
 const server = express();
+
 server.use(express.json());
+server.use(cors());
+
+// // origin control to specific URL
+// server.use(cors({origin: 'http://localhost:3000'})); 
+
 
 // helper function
 const sendUserError = (status, message, res) => {
